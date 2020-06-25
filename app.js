@@ -1,6 +1,6 @@
 require('dotenv').config()
-const { IgApiClient, IgLoginTwoFactorRequiredError, LikedFeed } = require('instagram-private-api')
-const { MediaRepository } = require('instagram-private-api/dist/repositories/media.repository')
+const { IgApiClient, IgLoginTwoFactorRequiredError, LikedFeed } = require('./node_modules/instagram-private-api/dist/index.js')
+const { MediaRepository } = require('./node_modules/instagram-private-api/dist/repositories/media.repository')
 const ig = new IgApiClient()
 
 ig.state.generateDevice(process.env.IG_USER)
@@ -15,7 +15,6 @@ const massUnsave = async (feed) => {
   }
 }
 
-// TODO: Rate limit
 const massUnlike = async (feed) => {
   hasErrored = false;
 
@@ -39,8 +38,10 @@ ig.account
   .login(process.env.IG_USER, process.env.IG_PASS)
   .catch(e => console.error(e))
   .then(async user => {
+    // FIXME: Catch empty feeds
     const savedFeed = ig.feed.saved(user.pk)
     const likedFeed = ig.feed.liked(user.pk)
 
-    setInterval(massUnlike(likedFeed), 400*1000)
+    massUnlike(likedFeed)
+    setInterval(() => massUnlike(likedFeed), 400*1000)
   })
