@@ -4,7 +4,7 @@ Mass unliker and unsaver for Instagram. (unfinished)
 Instagram has a rate limit of 200 requests per hour. Therefore mass unlike unlikes 21 posts every 400s (~6.7 minutes) or 189 posts per hour.
 ### How to use
 1. Clone this repository
-2. (Optional) Create a `.env` looking with your Instagram credentials like this:
+2. (Optional) Create a `.env` file with your Instagram credentials like this:
 ```
 IG_USER=<username>
 IG_PASS=<password>
