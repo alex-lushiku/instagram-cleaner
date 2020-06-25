@@ -11,3 +11,4 @@ IG_PASS=<password>
 ```
 3. run `node app` or use a service like `pm2` on a server to run the program forever. If you've skipped step 2 add `IG_USER=<username> IG_PASS=<password>` to your command 
 ### License
+[MIT](LICENSE)
