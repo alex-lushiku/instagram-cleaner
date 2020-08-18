@@ -10,6 +10,6 @@ Instagram has a rate limit of 200 requests per hour. Therefore mass unlike unlik
 IG_USER=<username>
 IG_PASS=<password>
 ```
-4. run `node app` or use a service like `pm2` on a server to run the program forever. If you've skipped step 2 add `IG_USER=<username> IG_PASS=<password>` to your command 
+4. run `node app` or use a service like `pm2` on a server to run the program forever. If you've skipped step 3 add `IG_USER=<username> IG_PASS=<password>` to your command 
 ### License
 [MIT](LICENSE)
